@@ -90,6 +90,19 @@ import UIKit
         
     }
     
+    /// gestureRecognizerShouldBegin
+    ///
+    /// If the VC has a pan gesture recognizer (e.g. within a modal sheet), avoid it starting so that the signature can take place
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
+    {
+        if (gestureRecognizer is UIPanGestureRecognizer)
+        {
+            return false
+        }
+        return true
+    }
+
+
     /// touchesBegan
     ///
     /// - Parameters:

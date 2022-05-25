@@ -168,7 +168,15 @@ import UIKit
         guard !isEmpty else {
             return nil
         }
-        return UIImage(view: self)
+        
+        // Draw as a standalone image, without background
+        UIGraphicsBeginImageContext(self.bounds.size)
+        lineColor.setStroke()
+        path.stroke()
+        let signatureImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return signatureImage
     }
     
 }
